@@ -1,5 +1,6 @@
 // Entry point of the node application
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const express = require('express');
 const http = require('http');
 const mongoose = require('mongoose');
@@ -13,6 +14,7 @@ mongoose.connect('mongodb://localhost:auth/auth');
 
 // Application Setup
 app.use(morgan('combined'));
+app.use(cors());
 app.use(bodyParser.json({ type: '*/*' }));
 router(app);
 
